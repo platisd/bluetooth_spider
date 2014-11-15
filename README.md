@@ -1,4 +1,4 @@
-bluetooth_spider
+DIY Bluetooth enhanced, spider robot
 ================
 
 This is the arduino code for a cheap, hacked, robot toy that can move in 2 axis and be controlled by bluetooth. More information on how to built it are on my blog here: https://platis.solutions/blog/2014/11/15/diy-bluetooth-enhanced-spider-robot/
