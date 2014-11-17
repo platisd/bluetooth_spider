@@ -101,8 +101,7 @@ void refreshServosNow(){
 void refreshServos(long currentMillis){
   if(currentMillis - previousMillis >= interval) {
     previousMillis = currentMillis;   
-    myServo1.refresh();
-    myServo2.refresh();
+    refreshServosNow();
   }
 }
 
