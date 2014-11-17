@@ -1,14 +1,13 @@
 /* Bluetooth enhanced spider robot
  *
- * The spider moves forward or backward by sending a HIGH signal on either of the
- * motor pins.
+ * The spider moves by sending a HIGH signal on either of the motor pins.
  * If the same value is sent to both the pins, then the motor stops.
  * In order to turn, we move the pistons connected to each servo. That elevates
  * the equivalent side of the spider, resulting in a rotational movement.
- * Since the ATtiny85 based Adafruit Trinket is used, the standard 
- * Arduino Servo library can't be used, but the Adafruit one made for this chip.
- * Download it from:  https://github.com/adafruit/Adafruit_SoftServo
- * Check essential info at: https://learn.adafruit.com/trinket-gemma-servo-control/
+ * Since I used the ATtiny85 based Adafruit Trinket, I can't use the standard 
+ * Arduino Servo library, but the Adafruit one made for this chip. Download it
+ * from:  https://github.com/adafruit/Adafruit_SoftServo and check essential info
+ * about it at: https://learn.adafruit.com/trinket-gemma-servo-control/
  * 
  * For more details and schematics of the whole project:
  * https://platis.solutions/blog/2014/11/15/diy-bluetooth-enhanced-spider-robot/
