@@ -51,40 +51,24 @@ void loop()
     char inChar = mySerial.read();
     switch (inChar) {
     case 'l': //turn counter-clockwise
-      digitalWrite(MOTOR1PIN,LOW);   
-      digitalWrite(MOTOR2PIN,HIGH);   
-      myServo1.write(180);
-      myServo2.write(0);
-      refreshServosNow();
-      delay(20);
+      motorGoFront();
+      servosTurnLeft();
       break;
     case 'r': //turn clock-wise
-      digitalWrite(MOTOR1PIN,LOW);   
-      digitalWrite(MOTOR2PIN,HIGH);   
-      myServo1.write(0);
-      myServo2.write(180);
-      refreshServosNow();
-      delay(20);      
+      motorGoFront(); 
+      servosTurnRight();
       break;
     case 'f': //go ahead
-      digitalWrite(MOTOR1PIN,LOW);   
-      digitalWrite(MOTOR2PIN,HIGH);
-      myServo1.write(0);
-      myServo2.write(0);   
+      motorGoFront();
+      servosIdle();
       break;
     case 'b': //go back
-      digitalWrite(MOTOR1PIN,HIGH);   
-      digitalWrite(MOTOR2PIN,LOW);   
-      myServo1.write(0);
-      myServo2.write(0);
+      motorGoBack();
+      servosIdle();
       break;
     default: //if you receive something that you don't know, just stop
-      digitalWrite(MOTOR1PIN,LOW);   
-      digitalWrite(MOTOR2PIN,LOW);  
-      myServo1.write(0);
-      myServo2.write(0);
-      refreshServosNow();
-      delay(20);
+      motorStop();
+      servosIdle();
     }
   }
   refreshServos(millis());
@@ -104,5 +88,45 @@ void refreshServos(long currentMillis){
     refreshServosNow();
   }
 }
+
+void motorGoFront(){
+  digitalWrite(MOTOR1PIN,LOW);   
+  digitalWrite(MOTOR2PIN,HIGH);    
+}
+
+void motorGoBack(){
+  digitalWrite(MOTOR1PIN,HIGH);   
+  digitalWrite(MOTOR2PIN,LOW);   
+}
+
+void motorStop(){ //this could also be achieved by giving HIGH to both
+  digitalWrite(MOTOR1PIN,LOW);   
+  digitalWrite(MOTOR2PIN,LOW);  
+}
+
+void servosTurnLeft(){
+  myServo1.write(180);
+  myServo2.write(0);
+  refreshServosNow();
+  delay(20);
+}
+
+void servosTurnRight(){
+  myServo1.write(0);
+  myServo2.write(180);
+  refreshServosNow();
+  delay(20);  
+}
+
+void servosIdle(){
+  myServo1.write(0);
+  myServo2.write(0);
+  refreshServosNow();
+  delay(20);
+}
+
+
+
+
 
 
